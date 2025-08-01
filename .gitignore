@@ -1,0 +1,46 @@
+# Node dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+# Local environment variables
+.env
+.env.*
+
+# Output folders (in case you add a build step later)
+dist/
+build/
+
+# Symlink artifacts from `npm link`
+*.tgz
+*.pid
+*.seed
+
+# Mac/Linux file
+*.swp
+
+# Windows file
+*.lnk
+
+# Coverage (if you use test coverage tools later)
+coverage/
+
+# IDE folders
+.idea/
+*.suo
+*.njsproj
+*.sln
+
+# Test temp files (just in case)
+*.test.js.snap

@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "bin": {
-    "binary1": "./bin/index.js",
-    "binary2": "./some-other-file.js",
-    "binary3": "./some/subidrectory/and-another.js"
+    "tool": "./bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
