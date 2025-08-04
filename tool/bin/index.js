@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 import arg from 'arg';
 import chalk from 'chalk';
-import { findUpSync } from 'pkg-up';
-
-const pkgUp = require('pkg-up');
+import { getConfig } from '../src/config/config-mgr.js'; // ES module import
+import { start } from '../src/commands/start.js'; // ES module import
 
 try {
   const args = arg({
@@ -12,16 +11,8 @@ try {
   });
 
   if (args['--start']) {
-    const pkgPath = pkgUp.sync({cwd: process.cwd()});
-    const pkg = require(pkgPath);
-    if (pkg.tool) {
-      console.log('Found configuration', pkg.tool);
-      // TODO: do something with configuration
-    } else {
-      console.log(chalk.yellow('Could not find configuration, using default'));
-      // TODO: get default configuration
-    }
-    console.log(chalk.bgCyanBright('starting the app'));
+    const config = getConfig();
+    start(config);
   }
 } catch (e) {
   console.log(chalk.yellow(e.message));
