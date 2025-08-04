@@ -4,24 +4,29 @@ import chalk from 'chalk';
 import { getConfig } from '../src/config/config-mgr.js'; // ES module import
 import { start } from '../src/commands/start.js'; // ES module import
 
+import {createLogger} from '../src/logger.js';
+const logger = createLogger('bin');
+
 try {
   const args = arg({
     '--start': Boolean,
     '--build': Boolean,
   });
 
+    logger.debug('Received args', args);
+
   if (args['--start']) {
     const config = getConfig();
     start(config);
   }
 } catch (e) {
-  console.log(chalk.yellow(e.message));
+  logger.warning(e.message);
   console.log();
   usage();
 }
 
 function usage() {
   console.log(`${chalk.whiteBright('tool [CMD]')}
-  ${chalk.greenBright('--start')}\tStarts the app
-  ${chalk.greenBright('--build')}\tBuilds the app`);
+${chalk.greenBright('--start')}\tStarts the app
+${chalk.greenBright('--build')}\tBuilds the app`);
 }
