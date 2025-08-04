@@ -1,28 +1,36 @@
 #!/usr/bin/env node
-const arg = require('arg');
-const chalk = require('chalk');
+import arg from 'arg';
+import chalk from 'chalk';
+import { findUpSync } from 'pkg-up';
 
-function usage () {
-  console.log(`
-tool [CMD]
-  --start\t\tStarts the app
-  --build\t\tBuilds the app
-`);
-}
+const pkgUp = require('pkg-up');
 
 try {
   const args = arg({
     '--start': Boolean,
-    '--build': Boolean
+    '--build': Boolean,
   });
 
-  if (args['--start']) console.log(chalk.bgCyanBright('starting the app!'));
-  else if (args['--build']) console.log('building the app!');
-  else usage();
-
-} catch (err) {
-  console.error(chalk.yellow(err.message));
+  if (args['--start']) {
+    const pkgPath = pkgUp.sync({cwd: process.cwd()});
+    const pkg = require(pkgPath);
+    if (pkg.tool) {
+      console.log('Found configuration', pkg.tool);
+      // TODO: do something with configuration
+    } else {
+      console.log(chalk.yellow('Could not find configuration, using default'));
+      // TODO: get default configuration
+    }
+    console.log(chalk.bgCyanBright('starting the app'));
+  }
+} catch (e) {
+  console.log(chalk.yellow(e.message));
   console.log();
   usage();
-  process.exit(1);
+}
+
+function usage() {
+  console.log(`${chalk.whiteBright('tool [CMD]')}
+  ${chalk.greenBright('--start')}\tStarts the app
+  ${chalk.greenBright('--build')}\tBuilds the app`);
 }

@@ -1,6 +1,7 @@
 {
   "name": "tool",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "bin": {
     "tool": "./bin/index.js"
@@ -11,8 +12,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "tool": {
+    "port": 9999
+  },
   "description": "",
   "dependencies": {
-    "arg": "^5.0.2"
+    "arg": "^5.0.2",
+    "chalk": "^5.5.0",
+    "pkg-up": "^5.0.0"
   }
 }
