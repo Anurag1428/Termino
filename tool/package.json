@@ -14,6 +14,7 @@
   "description": "",
   "dependencies": {
     "arg": "^5.0.2",
+    "better-ajv-errors": "^2.0.2",
     "chalk": "^5.5.0",
     "cosmiconfig": "^9.0.0",
     "pkg-up": "^5.0.0"
