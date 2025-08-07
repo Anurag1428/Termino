@@ -1,23 +1,29 @@
 {
-  "name": "tool",
+  "name": "ai-terminal-helper",
   "version": "1.0.0",
   "type": "module",
   "bin": {
-    "tool": "./bin/index.js"
+    "ait": "./bin/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node bin/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ai", "terminal", "cli", "beginner-friendly"],
+  "author": "Your Name",
   "license": "ISC",
-  "description": "",
+  "description": "AI-enhanced terminal for beginners",
   "dependencies": {
     "arg": "^5.0.2",
     "better-ajv-errors": "^2.0.2",
     "chalk": "^5.5.0",
     "cosmiconfig": "^9.0.0",
     "debug": "^4.4.1",
-    "pkg-up": "^5.0.0"
+    "pkg-up": "^5.0.0",
+    "inquirer": "^9.2.0",
+    "axios": "^1.6.0",
+    "readline": "^1.3.0",
+    "child_process": "^1.0.2",
+    "commander": "^11.0.0"
   }
 }
