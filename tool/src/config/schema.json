@@ -1,7 +1,45 @@
 {
+  "type": "object",
   "properties": {
     "port": {
-      "type": "number"
+      "type": "number",
+      "minimum": 1000,
+      "maximum": 65535,
+      "default": 6666
+    },
+    "kimiApiKey": {
+      "type": "string",
+      "description": "Kimi K2 API key for AI features"
+    },
+    "aiModel": {
+      "type": "string",
+      "default": "moonshot-v1-8k"
+    },
+    "maxTokens": {
+      "type": "number",
+      "minimum": 100,
+      "maximum": 4000,
+      "default": 600
+    },
+    "temperature": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2,
+      "default": 0.7
+    },
+    "safeMode": {
+      "type": "boolean",
+      "default": true
+    },
+    "showWelcome": {
+      "type": "boolean",
+      "default": true
+    },
+    "enableColors": {
+      "type": "boolean",
+      "default": true
     }
-  }
+  },
+  "required": ["port"],
+  "additionalProperties": true
 }
